@@ -90,8 +90,7 @@ const ConnectionBox = (props) => {
       <div className={style["connections_container"]}>
         <h3>Connections</h3>
         <ul>
-          {chats}
-          {/* {chats &&
+          {chats &&
             chats.map((item) => {
               if (!item.isGroupChat) {
                 if (
@@ -121,7 +120,7 @@ const ConnectionBox = (props) => {
                   );
                 }
               }
-            })} */}
+            })}
         </ul>
       </div>
 
@@ -133,7 +132,7 @@ const ConnectionBox = (props) => {
           <SearchUserModal></SearchUserModal>
         </div>
         <div className={style["connection_list"]}>
-          {/* {chats.map((item) => {
+          {chats.map((item) => {
             if (!item.isGroupChat) {
               if (
                 item.users[0]._id ===
@@ -160,7 +159,7 @@ const ConnectionBox = (props) => {
                 );
               }
             }
-          })} */}
+          })}
         </div>
       </div>
     </section>

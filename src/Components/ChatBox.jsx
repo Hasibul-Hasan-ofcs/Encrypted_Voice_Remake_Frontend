@@ -1,5 +1,5 @@
 import style from "./ChatBox.module.css";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import video_call from "../svg/video_call.svg";
 import phone_fill from "../svg/phone_fill.svg";
 import video_call_blue from "../svg/video_call_blue.svg";
@@ -15,7 +15,7 @@ import { isLastMessage, isSameSender } from "../configuration/logics";
 import Overlay from "../UI/Overlay";
 
 // Socket Connection generation
-const ENDPOINT = "https://encrypted-voice-remake-backend.vercel.app";
+const ENDPOINT = "https://encrypted-voice-remake-backend.vercel.app/";
 let socket, selectedChatCompare;
 
 const ChatBox = (props) => {
@@ -28,6 +28,8 @@ const ChatBox = (props) => {
   const [selected, setSelected] = useState();
 
   const [unPress, setUnpress] = useState();
+
+  const fieldRef = useRef(null);
 
   // useEffect(() => {
   //   setCurrentChat(JSON.parse(localStorage.getItem("current_chat"))._id);
@@ -64,10 +66,12 @@ const ChatBox = (props) => {
         config
       );
 
-      // console.log(data);
+      // console.log(data, messages);
 
       socket.emit("newmessage", data);
       setMessages([...messages, data]);
+      fieldRef.current.value = "";
+
       // console.log(messages);
     } catch (error) {
       console.log(error);
@@ -198,14 +202,17 @@ const ChatBox = (props) => {
           <div className={style["chat_messages"]}>
             <ul>
               {messages &&
-                messages.map((m) => {
+                messages.map((m, index) => {
                   if (
                     m.sender._id ===
                     JSON.parse(localStorage.getItem("user_info"))._id
                   ) {
                     // console.log(false);
                     return (
-                      <li className={style["fl_right"]} key={m._id}>
+                      <li
+                        className={style["fl_right"]}
+                        key={Math.random() + index + 1}
+                      >
                         <div className={style["self_text_box"]}>
                           <span>{m.content}</span>
                         </div>
@@ -214,7 +221,10 @@ const ChatBox = (props) => {
                   } else {
                     // console.log(true);
                     return (
-                      <li className={style["fl_left"]} key={m._id}>
+                      <li
+                        className={style["fl_left"]}
+                        key={Math.random() + index + 2}
+                      >
                         <img
                           src={m.sender.user_image}
                           alt="name of user"
@@ -238,6 +248,7 @@ const ChatBox = (props) => {
             />
             <form onSubmit={sendMessageHandler}>
               <input
+                ref={fieldRef}
                 type="text"
                 name="typemessage"
                 id="typemessage"
