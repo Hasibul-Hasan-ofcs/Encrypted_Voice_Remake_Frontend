@@ -13,7 +13,10 @@ const MyChat = () => {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      const { data } = await axios.get("/api/chat", config);
+      const { data } = await axios.get(
+        "https://encrypted-voice-remake-backend.vercel.app/api/chat",
+        config
+      );
       setChats(data);
     } catch (error) {
       alert("Failed to load the chats");

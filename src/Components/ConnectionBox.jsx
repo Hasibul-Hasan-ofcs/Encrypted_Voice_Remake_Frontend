@@ -38,11 +38,14 @@ const ConnectionBox = (props) => {
         },
       };
 
-      const { data } = await axios.get(`/api/chat`, config);
+      const { data } = await axios.get(
+        `https://encrypted-voice-remake-backend.vercel.app/api/chat`,
+        config
+      );
       setChats(data);
       // console.log(data);
     } catch (error) {
-      alert(error.message);
+      console.log(error.message);
       console.log(error);
     }
   };
@@ -62,7 +65,7 @@ const ConnectionBox = (props) => {
   //         Authorization: `Bearer ${user.token}`,
   //       },
   //     };
-  //     const { data } = await axios.post("/api/chat", { userId }, config);
+  //     const { data } = await axios.post("https://encrypted-voice-remake-backend.vercel.app/api/chat", { userId }, config);
   //     setSelectedChat1(data);
   //   } catch (error) {
   //     alert(error.message);
@@ -87,36 +90,38 @@ const ConnectionBox = (props) => {
       <div className={style["connections_container"]}>
         <h3>Connections</h3>
         <ul>
-          {chats.map((item) => {
-            if (!item.isGroupChat) {
-              if (
-                item.users[0]._id ===
-                JSON.parse(localStorage.getItem("user_info"))._id
-              ) {
-                return (
-                  <li key={item._id}>
-                    <img
-                      src={item.users[1].user_image}
-                      alt="name of user"
-                      className={style["contact_image"]}
-                    />
-                    <p>{item.users[1].name}</p>
-                  </li>
-                );
-              } else {
-                return (
-                  <li key={item._id}>
-                    <img
-                      src={item.users[0].user_image}
-                      alt="name of user"
-                      className={style["contact_image"]}
-                    />
-                    <p>{item.users[1].name}</p>
-                  </li>
-                );
+          {chats}
+          {/* {chats &&
+            chats.map((item) => {
+              if (!item.isGroupChat) {
+                if (
+                  item.users[0]._id ===
+                  JSON.parse(localStorage.getItem("user_info"))._id
+                ) {
+                  return (
+                    <li key={item._id}>
+                      <img
+                        src={item.users[1].user_image}
+                        alt="name of user"
+                        className={style["contact_image"]}
+                      />
+                      <p>{item.users[1].name}</p>
+                    </li>
+                  );
+                } else {
+                  return (
+                    <li key={item._id}>
+                      <img
+                        src={item.users[0].user_image}
+                        alt="name of user"
+                        className={style["contact_image"]}
+                      />
+                      <p>{item.users[1].name}</p>
+                    </li>
+                  );
+                }
               }
-            }
-          })}
+            })} */}
         </ul>
       </div>
 
@@ -128,7 +133,7 @@ const ConnectionBox = (props) => {
           <SearchUserModal></SearchUserModal>
         </div>
         <div className={style["connection_list"]}>
-          {chats.map((item) => {
+          {/* {chats.map((item) => {
             if (!item.isGroupChat) {
               if (
                 item.users[0]._id ===
@@ -155,7 +160,7 @@ const ConnectionBox = (props) => {
                 );
               }
             }
-          })}
+          })} */}
         </div>
       </div>
     </section>

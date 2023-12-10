@@ -56,7 +56,7 @@ const ChatBox = (props) => {
       };
       setNewMessage("");
       const { data } = await axios.post(
-        "/api/message",
+        "https://encrypted-voice-remake-backend.vercel.app/api/message",
         {
           messageData: newMessage,
           chatId: JSON.parse(localStorage.getItem("current_chat"))._id,
@@ -70,7 +70,7 @@ const ChatBox = (props) => {
       setMessages([...messages, data]);
       // console.log(messages);
     } catch (error) {
-      alert(error);
+      console.log(error);
     }
   };
 
@@ -93,7 +93,9 @@ const ChatBox = (props) => {
       };
 
       const { data } = await axios.get(
-        `/api/message/${JSON.parse(localStorage.getItem("current_chat"))._id}`,
+        `https://encrypted-voice-remake-backend.vercel.app/api/message/${
+          JSON.parse(localStorage.getItem("current_chat"))._id
+        }`,
         config
       );
 
@@ -105,7 +107,7 @@ const ChatBox = (props) => {
         JSON.parse(localStorage.getItem("current_chat"))._id
       );
     } catch (error) {
-      alert(error.message);
+      console.log(error.message);
       // console.log(error);
     }
   };

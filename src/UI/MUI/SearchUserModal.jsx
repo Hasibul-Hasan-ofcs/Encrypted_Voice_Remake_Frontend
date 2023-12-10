@@ -31,12 +31,15 @@ export default function SearchUserModal() {
         },
       };
 
-      const { data } = await axios.get(`/api/user?search=${searchBox}`, config);
+      const { data } = await axios.get(
+        `https://encrypted-voice-remake-backend.vercel.app/api/user?search=${searchBox}`,
+        config
+      );
 
       setSearchResult(data);
       // console.log(data);
     } catch (error) {
-      alert(error.message);
+      console.log(error.message);
     }
   };
 

@@ -59,7 +59,7 @@ const Signup = () => {
           };
 
           const { data } = await axios.post(
-            "/api/user/signup",
+            "https://encrypted-voice-remake-backend.vercel.app/api/user/signup",
             {
               name,
               email,

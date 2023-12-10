@@ -13,7 +13,7 @@ const Settings = () => {
   // const [temp, setTemp] = useState([]);
   // const fetchData = async () => {
   //for getting this kind of path specification proxy needs to be defined in package.json
-  // const { data } = await axios.get("/api/data/");
+  // const { data } = await axios.get("https://encrypted-voice-remake-backend.vercel.app/api/data/");
   // setTemp(data);
   // };
 
