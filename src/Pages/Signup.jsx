@@ -137,7 +137,7 @@ const Signup = () => {
                   className={`user_image ${style["file_input"]}`}
                   accept="image/*"
                   onChange={(e) => setUser_Image(e.target.files[0])}
-                  required
+                  // required
                 />
                 {/* <img src={upload_icon} className={style["upload_icon"]} /> */}
               </div>
