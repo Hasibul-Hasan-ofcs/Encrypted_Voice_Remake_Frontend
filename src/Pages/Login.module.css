@@ -1,0 +1,124 @@
+.main_section {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-image: url("../image/neon_ring_background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  background-color: rgba(0, 0, 0, 0.9);
+  background-attachment: fixed;
+}
+
+.main_card {
+  height: 60rem;
+  width: 114rem;
+  /* box-shadow: 0 3px 10px 3px rgb(199, 199, 199); */
+  border-radius: 2rem;
+
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.left_portion {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6rem;
+
+  background-color: #fff;
+}
+
+.left_portion .heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+}
+
+.left_portion .heading h1 {
+  width: fit-content;
+}
+
+.left_portion img {
+  width: 60%;
+}
+
+.right_portion {
+  width: 50%;
+  height: 100%;
+  background-color: #19191d;
+  display: flex;
+  gap: 3rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login_form {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.login_form h2 {
+  text-transform: uppercase;
+  font-size: 3.2rem;
+  font-weight: 400;
+  border-left: 3px solid #9856d1;
+  line-height: 100%;
+  padding: 0 0 0 1rem;
+}
+
+.text_input {
+  font-size: 1.7rem;
+  color: #fff;
+  border-radius: 3px;
+  border: 1px solid #fff;
+  background-color: transparent;
+  padding: 1rem;
+  min-width: 32rem;
+}
+
+.text_input:focus {
+  border: 1px solid #0091ff;
+}
+
+.login_submit {
+  background: linear-gradient(to right, #64bcff, #9953cf);
+  border: none;
+  border-radius: 3px;
+  font-size: 2.5rem;
+  padding: 1rem;
+  font-weight: 600;
+  color: #fff;
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.login_submit:hover {
+  background: linear-gradient(to right, #9953cf, #64bcff);
+  box-shadow: 0 3px 10px #64bcff;
+}
+
+.login_extraa {
+  color: rgb(190, 190, 190);
+  font-size: 1.5rem;
+}
+
+.login_extraa a {
+  color: #0091ff;
+}
